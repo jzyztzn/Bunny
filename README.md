@@ -28,13 +28,13 @@ Moreover, our **Bunny-4B** model built upon SigLIP and Phi-3-mini outperforms th
 
 * 2024.06.26 🔥 **All of the training strategy and data of latest Bunny is released!** Check more details about Bunny in [Technical Report](https://arxiv.org/abs/2402.11530), [Data](https://huggingface.co/datasets/BoyaWu10/Bunny-v1_1-data) and [Training Tutorial](#training-tutorial)!
 * 2024.06.20 🔥 **MMR benchmark is released!** It is a benchmark for measuring MLLMs' understanding ability and their robustness against misleading questions. Check the performance of Bunny and more details in [GitHub](https://github.com/BAAI-DCAI/Multimodal-Robustness-Benchmark)!
-* 2024.06.01 🔥 **Bunny-v1.1-Llama-3-8B-V, supporting 1152x1152 resolution, is released!** It is built upon SigLIP and Llama-3-8B-Instruct with S$`^2`$-Wrapper. Check more details in [HuggingFace](https://huggingface.co/BAAI/Bunny-v1_1-Llama-3-8B-V)! 🐰 [Demo](http://bunny.baai.ac.cn)
+* 2024.06.01 🔥 **Bunny-v1.1-Llama-3-8B-V, supporting 1152x1152 resolution, is released!** It is built upon SigLIP and Llama-3-8B-Instruct with S$`^2`$-Wrapper. Check more details in [HuggingFace](https://huggingface.co/BAAI/Bunny-v1_1-Llama-3-8B-V) and [wisemodel](https://wisemodel.cn/models/BAAI/Bunny-v1.1-Llama-3-8B-V)! 🐰 [Demo](http://bunny.baai.ac.cn)
 
 * 2024.05.08 🔥 **Bunny-v1.1-4B, supporting 1152x1152 resolution, is released!** It is built upon SigLIP and Phi-3-Mini-4K 3.8B with S$`^2`$-Wrapper. Check more details in [HuggingFace](https://huggingface.co/BAAI/Bunny-v1_1-4B)! 🐰 [Demo](http://bunny.baai.ac.cn)
 
 * 2024.05.01 🔥 **Bunny-v1.0-4B, a vision-language model based on Phi-3, is released!** It is built upon SigLIP and Phi-3-Mini-4K 3.8B. Check more details in [HuggingFace](https://huggingface.co/BAAI/Bunny-v1_0-4B)! 🤗 [GGUF](https://huggingface.co/BAAI/Bunny-v1_0-4B-gguf)
 
-* 2024.04.21 **Bunny-Llama-3-8B-V, the first vision-language model based on Llama-3, is released!** It is built upon SigLIP and Llama-3-8B-Instruct. Check more details in [HuggingFace](https://huggingface.co/BAAI/Bunny-Llama-3-8B-V), [ModelScope](https://www.modelscope.cn/models/BAAI/Bunny-Llama-3-8B-V), and [wisemodel](https://wisemodel.cn/models/BAAI/Bunny-Llama-3-8B-V)! 🤗 [GGUF](https://huggingface.co/BAAI/Bunny-Llama-3-8B-V-gguf)
+* 2024.04.21 **Bunny-Llama-3-8B-V, the first vision-language model based on Llama-3, is released!** It is built upon SigLIP and Llama-3-8B-Instruct. Check more details in [HuggingFace](https://huggingface.co/BAAI/Bunny-Llama-3-8B-V), [ModelScope](https://www.modelscope.cn/models/BAAI/Bunny-Llama-3-8B-V), and [wisemodel](https://wisemodel.cn/models/BAAI/Bunny-Llama-3-8B-V)! The **GGUF** format is in [HuggingFace](https://huggingface.co/BAAI/Bunny-Llama-3-8B-V-gguf) and [wisemodel](https://wisemodel.cn/models/BAAI/Bunny-Llama-3-8B-V-gguf).
 
 * 2024.04.18 **Bunny-v1.0-3B-zh, powerful on English and Chinese, is released!** It is built upon SigLIP and MiniCPM-2B. Check more details in [HuggingFace](https://huggingface.co/BAAI/Bunny-v1_0-3B-zh), [ModelScope](https://www.modelscope.cn/models/BAAI/Bunny-v1.0-3B-zh/summary), and [wisemodel](https://wisemodel.cn/models/BAAI/Bunny-v1.0-3B-zh)! The evaluation results are in the [Evaluation](#evaluation). We sincerely thank Zhenwei Shao for his kind help.
 
@@ -353,11 +353,11 @@ More models will be supported in the future!
 
   We build Bunny-695K by modifying [SVIT-mix-665K](https://arxiv.org/abs/2307.04087) for finetuning. And we then combine it with LLaVA-665K and ALLaVA-Instruct-4V, i.e., Bunny-LLaVA-1.4M, Bunny-ALLaVA-1.3M, and Bunny-LLaVA-ALLaVA-2M.
 
-  The dataset is available [here](https://huggingface.co/datasets/BoyaWu10/Bunny-v1_1-data). If you only want to use Bunny-695K and the related images, you can find them [here](https://huggingface.co/datasets/BoyaWu10/Bunny-v1_0-data).
+  The dataset is available [here](https://huggingface.co/datasets/BoyaWu10/Bunny-v1_1-data). If you only want to use Bunny-695K and the related images, you can just download them [here](https://huggingface.co/datasets/BoyaWu10/Bunny-v1_0-data).
 
 * Run
 
-  Update `--model_name_or_path` and `--vision_tower` to the paths of the LLM and vision encoder, respectively. Update `MODEL_TYPE`, `PRETRAIN_DIR` and `OUTPUT_DIR` accordingly. The global batch size is 128. For `MODEL_TYPE = minicpm/phi-3/llama3-8b`, change `--version` to `minicpm/phi3/llama`, too. S$`^2`$-Wrapper would be enabled if `--use_s2 True` added.
+  Update `--model_name_or_path` and `--vision_tower` to the paths of the LLM and vision encoder, respectively. Update `MODEL_TYPE`, `PRETRAIN_DIR` and `OUTPUT_DIR` accordingly. The global batch size is 128. For `MODEL_TYPE = minicpm/phi-3/llama3-8b`, change `--version` to `minicpm/phi3/llama`, too. S$`^2`$-Wrapper would be enabled if `--use_s2 True` added. The vision encoder would be tuned if `--unfreeze_vision_tower True` added.
   
   We explore a better strategy including more visual instruction tuning data, S$`^2`$-Wrapper, trainable vision encoder, weight merging, and etc. You may refer to the settings in our experiments in the [Training Tutorial](#training-tutorial).
   
@@ -401,7 +401,7 @@ If you want to continuously fine-tuning our released Bunny models on your data o
 
    * customize the hyperparameters, e.g. the learning rate, to fit your dataset
    
-   * for `MODEL_TYPE = minicpm/phi-3/llama3-8b`, change `--version` to `minicpm/phi3/llama`, too. S$`^2`$-Wrapper would be enabled if `--use_s2 True` added.
+   * for `MODEL_TYPE = minicpm/phi-3/llama3-8b`, change `--version` to `minicpm/phi3/llama`, too. S$`^2`$-Wrapper would be enabled if `--use_s2 True` added. The vision encoder would be tuned if `--unfreeze_vision_tower True` added.
 
 </details>
 
