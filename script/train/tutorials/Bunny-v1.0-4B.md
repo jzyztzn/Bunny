@@ -1,5 +1,7 @@
 # Training Tutorial of Bunny-v1.0-4B
 
+![Bunny-v1.0-4B](assets/Bunny-v1.0-4B.png)
+
 ## Pretrain
 
 ```shell

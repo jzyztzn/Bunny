@@ -1,5 +1,7 @@
 # Training Tutorial of Bunny-v1.1-Llama-3-8B-V
 
+![Bunny-v1.1-Llama-3-8B-V](assets/Bunny-v1.1-Llama-3-8B-V.png)
+
 ## Pretrain
 
 ```shell
