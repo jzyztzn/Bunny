@@ -402,6 +402,9 @@ If you want to continuously fine-tuning our released Bunny models on your data o
    * customize the hyperparameters, e.g. the learning rate, to fit your dataset
    
    * for `MODEL_TYPE = minicpm/phi-3/llama3-8b`, change `--version` to `minicpm/phi3/llama`, too. S$`^2`$-Wrapper would be enabled if `--use_s2 True` added. The vision encoder would be tuned if `--unfreeze_vision_tower True` added.
+   
+
+**Note** that if you continuously fine-tune Bunny models using LoRA, `--model-base` should be Bunny models rather than the original LLMs when loading.
 
 </details>
 
