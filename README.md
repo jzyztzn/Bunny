@@ -4,7 +4,7 @@
   <img src="./icon.png" alt="Logo" width="350">
 </p>
 
-📖 [Technical report](https://arxiv.org/abs/2402.11530) | 🤗 [Data](https://huggingface.co/datasets/BoyaWu10/Bunny-v1_1-data) | 🤖 [Data](https://www.modelscope.cn/datasets/BoyaWu10/Bunny-v1.1-data) | 🐰 [Demo](http://bunny.baai.ac.cn)
+📖 [Technical report](https://arxiv.org/abs/2402.11530) | 🤗 [Data](https://huggingface.co/datasets/BoyaWu10/Bunny-v1_1-data) | 🤖 [Data](https://www.modelscope.cn/datasets/BoyaWu10/Bunny-v1.1-data) | 🤗 [HFSpace](https://huggingface.co/spaces/BoZhaoHuggingFace/Bunny) 🐰 [Demo](http://bunny.baai.ac.cn)
 
 **Bunny-Llama-3-8B-V**: 🤗 [v1.1](https://huggingface.co/BAAI/Bunny-v1_1-Llama-3-8B-V) | 🤗 [v1.0](https://huggingface.co/BAAI/Bunny-Llama-3-8B-V) | 🤗 [v1.0-GGUF](https://huggingface.co/BAAI/Bunny-Llama-3-8B-V-gguf)
 
