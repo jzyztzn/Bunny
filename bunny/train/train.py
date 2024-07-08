@@ -15,7 +15,8 @@ from bunny.model import *
 from bunny.util.data_utils import make_supervised_data_module, DataArguments
 
 local_rank = None
-
+import warnings
+warnings.filterwarnings('ignore')
 
 def rank0_print(*args):
     if local_rank == 0:

@@ -1,18 +1,18 @@
 #!/bin/bash
 
-MODEL_TYPE=phi-2
-OUTPUT_DIR=bunny-$MODEL_TYPE-pretrain
+MODEL_TYPE=phi-3
+OUTPUT_DIR=bunny-$MODEL_TYPE-pretrain-siglip224
 
 mkdir -p ./checkpoints-pretrain/$OUTPUT_DIR
 
 deepspeed bunny/train/train.py \
     --deepspeed ./script/deepspeed/zero2.json \
-    --model_name_or_path /path/to/base_llm_model \
+    --model_name_or_path /root/autodl-tmp/tzn/Projects/pretrained/LLM-Research/Phi-3-mini-4k-instruct \
     --model_type $MODEL_TYPE \
-    --version plain \
+    --version phi3 \
     --data_path ./data/pretrain/bunny_pretrain_laion_2m.json \
     --image_folder ./data/pretrain/images \
-    --vision_tower /path/to/siglip-so400m-patch14-384 \
+    --vision_tower /root/autodl-tmp/tzn/Projects/pretrained/siglip/siglip-base-patch16-224 \
     --mm_projector_type mlp2x_gelu \
     --tune_mm_mlp_adapter True \
     --image_aspect_ratio square \

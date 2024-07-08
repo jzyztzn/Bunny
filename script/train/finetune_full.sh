@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MODEL_TYPE=phi-2
+MODEL_TYPE=phi-3
 
 PRETRAIN_DIR=bunny-$MODEL_TYPE-pretrain
 OUTPUT_DIR=bunny-$MODEL_TYPE
@@ -9,12 +9,12 @@ mkdir -p ./checkpoints-$MODEL_TYPE/$OUTPUT_DIR
 
 deepspeed bunny/train/train.py \
     --deepspeed ./script/deepspeed/zero3.json \
-    --model_name_or_path /path/to/base_llm_model \
+    --model_name_or_path /root/autodl-tmp/tzn/Projects/pretrained/LLM-Research/Phi-3-mini-4k-instruct \
     --model_type $MODEL_TYPE \
-    --version bunny \
+    --version phi3 \
     --data_path ./data/finetune/bunny_695k.json \
     --image_folder ./data/finetune/images \
-    --vision_tower /path/to/siglip-so400m-patch14-384 \
+    --vision_tower /root/autodl-tmp/tzn/Projects/pretrained/siglip/siglip-base-patch16-256 \
     --pretrain_mm_mlp_adapter ./checkpoints-pretrain/$PRETRAIN_DIR/mm_projector.bin \
     --mm_projector_type mlp2x_gelu \
     --image_aspect_ratio pad \
@@ -27,7 +27,7 @@ deepspeed bunny/train/train.py \
     --gradient_accumulation_steps 2 \
     --evaluation_strategy "no" \
     --save_strategy "steps" \
-    --save_steps 500 \
+    --save_steps 2000 \
     --save_total_limit 1 \
     --learning_rate 2e-5 \
     --weight_decay 0. \
