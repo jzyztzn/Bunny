@@ -1,5 +1,5 @@
-sleep 150m
-sh script/train/pretrain.sh
+# sleep 150m
+# sh script/train/pretrain.sh
 
 # full-parameter tuning
-# sh script/train/finetune_full.sh
+sh script/train/finetune_full.sh
