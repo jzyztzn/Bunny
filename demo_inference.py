@@ -17,16 +17,18 @@ torch.set_default_device(device)
 
 # create model
 model = AutoModelForCausalLM.from_pretrained(
-    '/root/autodl-tmp/tzn/Projects/Bunny/checkpoints-phi-3/bunny-phi-3-2mdata',
+    '/root/autodl-tmp/tzn/Projects/Bunny/checkpoints-phi-3/bunny-phi-3-siglip384',
     torch_dtype=torch.float16, # float32 for cpu
     device_map='auto',
     trust_remote_code=True)
 tokenizer = AutoTokenizer.from_pretrained(
-    '/root/autodl-tmp/tzn/Projects/Bunny/checkpoints-phi-3/bunny-phi-3-2mdata',
+    '/root/autodl-tmp/tzn/Projects/Bunny/checkpoints-phi-3/bunny-phi-3-siglip384',
     trust_remote_code=True)
 
 # text prompt
 prompt = '描述一下这幅图像，并使用中文回答，20字以内'
+# prompt = '用一个单词或一句简短的话描述一下图像'
+# prompt = '描述一下图像，并用中文回答'
 text = f"A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions. USER: <image>\n{prompt} ASSISTANT:"
 text_chunks = [tokenizer(chunk).input_ids for chunk in text.split('<image>')]
 input_ids = torch.tensor(text_chunks[0] + [-200] + text_chunks[1], dtype=torch.long).unsqueeze(0).to(device)
@@ -45,7 +47,7 @@ for imageName in imageList:
     output_ids = model.generate(
         input_ids,
         images=image_tensor,
-        max_new_tokens=100,
+        max_new_tokens=1000,
         use_cache=True,
         repetition_penalty=1.0 # increase this to avoid chattering
     )[0]

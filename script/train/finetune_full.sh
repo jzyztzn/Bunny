@@ -2,7 +2,7 @@
 
 MODEL_TYPE=phi-3
 
-PRETRAIN_DIR=bunny-$MODEL_TYPE-pretrain-siglip384
+PRETRAIN_DIR=bunny-$MODEL_TYPE-pretrain-siglip384-ldpv2
 OUTPUT_DIR=bunny-$MODEL_TYPE-siglip384
 
 mkdir -p ./checkpoints-$MODEL_TYPE/$OUTPUT_DIR
@@ -16,7 +16,7 @@ deepspeed bunny/train/train.py \
     --image_folder ./data/finetune/images \
     --vision_tower /root/autodl-tmp/tzn/Projects/pretrained/siglip/siglip-so400m-patch14-384 \
     --pretrain_mm_mlp_adapter ./checkpoints-pretrain/$PRETRAIN_DIR/mm_projector.bin \
-    --mm_projector_type mlp2x_gelu \
+    --mm_projector_type ldpv2 \
     --image_aspect_ratio pad \
     --group_by_modality_length False \
     --bf16 True \
