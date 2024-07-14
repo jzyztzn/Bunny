@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MODEL_TYPE=phi-3
-OUTPUT_DIR=bunny-$MODEL_TYPE-pretrain-siglip384-ldpv2
+OUTPUT_DIR=bunny-$MODEL_TYPE-pretrain-siglip224-ldpv2
 
 mkdir -p ./checkpoints-pretrain/$OUTPUT_DIR
 
@@ -12,7 +12,7 @@ deepspeed bunny/train/train.py \
     --version phi3 \
     --data_path ./data/pretrain/bunny_pretrain_laion_2m.json \
     --image_folder ./data/pretrain/images \
-    --vision_tower /root/autodl-tmp/tzn/Projects/pretrained/siglip/siglip-so400m-patch14-384 \
+    --vision_tower /root/autodl-tmp/tzn/Projects/pretrained/siglip/siglip-base-patch16-224 \
     --mm_projector_type ldpv2 \
     --tune_mm_mlp_adapter True \
     --image_aspect_ratio square \

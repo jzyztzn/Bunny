@@ -159,7 +159,7 @@ class LDPNetV2Projector(nn.Module):
         super().__init__()
         inc, ouc = config.mm_hidden_size, config.hidden_size
         self.mlp = FeatureIRLayer(inc, ouc)
-        self.dwn = TokenDownLayer((9, 9))
+        self.dwn = TokenDownLayer((7, 7))
         self.peg = PosInjectLayer(ouc, ouc, stride=1)
 
     def forward(self, x):

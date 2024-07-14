@@ -1,4 +1,4 @@
-# sleep 30m
+sleep 240m
 sh script/train/pretrain.sh
 
 # full-parameter tuning
